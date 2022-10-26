@@ -1,24 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Route, NavLink, Routes } from 'react-router-dom'
+import BooksList from './components/BooksList/BooksList';
+import BookForm from './components/BookForm/BookForm';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="header">
+        <ul>
+          <li>
+            <NavLink to='/list'>List</NavLink>
+          </li>
+          <li>
+            <NavLink to='/form' activeClassName='selected'>Form</NavLink>
+          </li>
+        </ul>
+      </div>
+      <Routes>
+        <Route path='/list' element= {<BooksList/>}>
+        </Route>
+        <Route path='/form' element= {<BookForm/>}>
+        </Route>
+      </Routes>
+    </Router>
+    
   );
 }
 
