@@ -12,3 +12,9 @@
 // sagaMiddleware.run(rootSaga);
 
 // export default store;
+
+import { createStore} from 'redux';
+import bookReducer from './reducers/reducers';
+
+
+export default createStore(bookReducer)
